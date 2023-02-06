@@ -1,3 +1,6 @@
 # Folders
-/.ipynb_checkpoints/
+/.ipynb_checkpoints
+/.virtual_documents
 /pedaly
+/postgres-data
+.DS_Store
