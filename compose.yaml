@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    container_name: pedaly-db
+    image: postgres:latest
+    user: postgres
+    volumes:
+      # to persist the data in host machine
+      - ./postgres-data:/var/lib/postgresql/data
+      # where the host data is stored
+      - ./data:/data
+      # copy the sql script to be executed in the container
+      - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=pedaly
+    ports:
+      - "5438:5432"
